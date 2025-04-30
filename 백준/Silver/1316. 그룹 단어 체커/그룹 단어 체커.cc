@@ -7,19 +7,19 @@ int main()
 	int n;
 	cin >> n;
 
-	string str;
 	int cnt = 0;
+	string str;
 
-	for (int i = 0; i < n; i++) {
+	for (int i = 0; i < n; ++i)
+	{
 		cin >> str;
-
 		if (str.length() <= 2)
 		{
 			continue;
 		}
 		else
 		{
-			for (int j = 0; j < str.length() - 1; j++)
+			for (int j = 0; j < str.length()-1; ++j)
 			{
 				if (str[j] != str[j + 1])
 				{
@@ -34,4 +34,3 @@ int main()
 	}
 	cout << n - cnt;
 }
-
