@@ -1,27 +1,29 @@
-#include <iostream>
+#include<iostream>
+#include<vector>
 using namespace std;
+vector<pair<int, int>> fiboArr(40);
 int main() {
-	int testcase = 0, a = 0;
-	cin >> testcase;
-	int* arr;
-	while (testcase--) {
-		cin >> a;
-		if (a < 2) {
-			if (a == 0) {
-				cout << "1 0" << endl;
-			}
-			else {
-				cout << "0 1" << endl;
-			}
-		}
-		else {
-			arr = new int[41];
-			arr[0] = 1, arr[1] = 1;
-			for (int i = 2; i <= a; i++) {
-				arr[i] = arr[i - 1]+ arr[i-2];
-			}
-			cout << arr[a - 2] << " " << arr[a - 1] << endl;
-		}
-	}
-	return 0;
+	int count;
+	cin >> count;
+    int max=0;
+    vector<int> arr;
+    for (int i = 0;i < count;++i) {
+        int num;
+        cin >> num;
+        arr.push_back(num);
+        if (max < num)
+            max = num;
+    }
+    pair<int, int> resetPair = { 1,0 };
+    fiboArr[0] = resetPair;
+    resetPair = { 0,1 };
+    fiboArr[1] = resetPair;
+
+    for (int i = 2;i <= max;++i) {
+        pair<int, int> pair = { fiboArr[i - 1].first + fiboArr[i - 2].first,fiboArr[i - 1].second + fiboArr[i - 2].second };
+        fiboArr[i] = pair;
+    }
+    for (int i : arr) {
+        cout<<fiboArr[i].first << " " << fiboArr[i].second<<"\n";
+    }
 }
