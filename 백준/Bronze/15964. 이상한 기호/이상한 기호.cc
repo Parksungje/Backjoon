@@ -3,14 +3,12 @@ using namespace std;
 
 int main()
 {
-	int n[2];
-	int result;
+	long long n[2];
+	cin >> n[0] >> n[1];
+	long long result;
 
-	for (int i = 0; i < 2; ++i)
-	{
-		cin >> n[i];
-		result = (n[0] + n[1]) * (n[0] - n[1]);
-	}
+	result = (n[0] + n[1]) * (n[0] - n[1]);
 
 	cout << result;
 }
+//변수 선언을 바꿔봄
